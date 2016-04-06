@@ -1,5 +1,7 @@
 # Profile Patcher
 
+[![Join the chat at https://gitter.im/rumkin/profile_patcher](https://badges.gitter.im/rumkin/profile_patcher.svg)](https://gitter.im/rumkin/profile_patcher?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 The last `~/profile` patch. It adds `.profile.d` directory into `$HOME`
 and automatically requires shell scripts from it. No more `~/.profile` patching!
 Just put all your scripts into `~/.profile.d`.
