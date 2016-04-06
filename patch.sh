@@ -58,9 +58,13 @@ if [ $# -lt 1 ]; then
             patch install /etc/skel
         ;;
         *)
-            echo 'Unknown linux distirbution!' >&2
-            echo 'Try manual patching: patch.sh <DIRECTORY>' >&2
-            exit 1
+            if [ -d "/etc/skel" ]; then
+                patch install /etc/skel
+            else
+                echo 'Unknown linux distirbution!' >&2
+                echo 'Try manual patching: patch.sh <DIRECTORY>' >&2
+                exit 1
+            fi
         ;;
     esac
 else
