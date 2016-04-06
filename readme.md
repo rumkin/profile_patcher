@@ -32,7 +32,7 @@ wget https://raw.githubusercontent.com/rumkin/profile_patcher/master/patch.sh | 
 
 Install and patch specified directory:
 ```bash
-PATCH_DIR=$HOME wget https://raw.githubusercontent.com/rumkin/profile_patcher/master/patch.sh | bash
+PATCH=$HOME wget https://raw.githubusercontent.com/rumkin/profile_patcher/master/patch.sh | bash
 ```
 
 Manual installation and patching:
@@ -42,3 +42,13 @@ sudo ./patch.sh ~root # Patch root
 ./patch.sh $HOME # Patch home
 ./patch.sh # Patch skeleton
 ```
+
+## Uninstall patch
+
+To uninstall add `-d` flag as the first cli argument:
+```shell
+./patch.sh -d $HOME
+```
+
+**NOTE**! That `.profile.d` directory will not be uninstalled.
+You should do it manually.
