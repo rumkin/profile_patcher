@@ -50,7 +50,11 @@ function patch {
     esac
 }
 
-if [ $# -lt 1 ]; then
+if [ -z "$PATCH_DIR" ]; then
+    PATCH_DIR=$1
+fi
+
+if [ -z "$PATCH_DIR" ]; then
     . /etc/os-release
 
     case $ID in
@@ -68,5 +72,5 @@ if [ $# -lt 1 ]; then
         ;;
     esac
 else
-    patch install $1
+    patch install $PATCH_DIR
 fi
