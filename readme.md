@@ -53,4 +53,8 @@ To uninstall add `-d` flag as the first cli argument:
 ```
 
 **NOTE**! That `.profile.d` directory will not be uninstalled.
-You should do it manually.
+You should do it manually or use `-D` flag:
+
+```shell
+./patch.sh -d $HOME # remove .profile.d too
+```

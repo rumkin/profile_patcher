@@ -41,6 +41,14 @@ function patch_uninstall {
     remove_profile $PROFILE
 }
 
+# Uninstall with complete data deletion
+function patch_uninstall_force {
+    PROFILE=$1
+    patch_uninstall $@ || exit 1
+    PROFILE_D=$(dirname $PROFILE)/.profile.d
+    [ -d "$PROFILE_D" ] && rm -rf $PROFILE_D
+}
+
 # Detect os home skeleton directory
 function skel_location {
     local BASENAME=$1
@@ -63,6 +71,8 @@ function skel_location {
     esac
 }
 
+set -e
+
 if [ -z $PROFILE ]; then
     BASENAME=".profile"
 else
@@ -71,6 +81,9 @@ fi
 
 if [ "$1" == "-d" ]; then
     DO=uninstall
+    shift 1
+elif [ "$1" == "-D" ]; then
+    DO=uninstall_force
     shift 1
 else
     DO=install
@@ -103,6 +116,4 @@ if [ ! -f $PATCH ]; then
     exit 1
 fi
 
-echo $PATCH
-exit
 patch_$DO $PATCH
