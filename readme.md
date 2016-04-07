@@ -56,5 +56,5 @@ To uninstall add `-d` flag as the first cli argument:
 You should do it manually or use `-D` flag:
 
 ```shell
-./patch.sh -d $HOME # remove .profile.d too
+./patch.sh -D $HOME # remove .profile.d too
 ```
